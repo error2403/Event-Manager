@@ -1,0 +1,4 @@
+100s - Database errors
+    101 - user name or password is incorrect.
+    102 - Database does not exist.
+    103 - unknown Database error
