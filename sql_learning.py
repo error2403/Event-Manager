@@ -15,6 +15,7 @@ try:
     # ** is used to unpack a dictionary (grab all the key-value pairs out of it)
       # * is used to unpack a list/tuple (grab all the values out of it)
     cnx = mysql.connector.connect(**config)
+    print("connection successful")
 
 # catch any errors thrown during connection
 except mysql.connector.Error as err:
@@ -25,13 +26,12 @@ except mysql.connector.Error as err:
         print("Database does not exist.")
         exit(102)
     else:
-        print(err)
+        print("unknown connection error: " + err)
         exit(103)
 
 # no errors in mysql server connection, good to proceed
 # create cursor to execute mysql commands
 cursor = cnx.cursor()
-
 
 def create_database(cursor: mysql.connector.cursor.MySQLCursor, db_name: str):
     """Create database for given cursor connection and name.
@@ -61,8 +61,9 @@ except mysql.connector.Error as err:
         create_database(cursor, DB_NAME)
         exit(102)
     else:
-        print(err)
+        print("unknown DB error: " + err)
         exit(103)
 
-print(cnx)
+
+# try to create table
 cnx.close()
