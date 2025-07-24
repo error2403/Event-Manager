@@ -1,3 +1,3 @@
 MySQL and flask website
 
-uses pip-sync to load python requirements
+will use pip-sync to load python requirements
