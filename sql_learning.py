@@ -2,11 +2,16 @@ import mysql.connector
 from mysql.connector import errorcode
 import mysql.connector.cursor
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # create config for mysql server connection
 config = {
-    'user': 'root',
-    'password': '',
-    'host': 'localhost',
+    'user': os.getenv("USER"),
+    'password': os.getenv("PASSWORD"),
+    'host': os.getenv("HOST"),
     'database': ''      # database left empty so we can create it if it doesnt exist
 }
 
